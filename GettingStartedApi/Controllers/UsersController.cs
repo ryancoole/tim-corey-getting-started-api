@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using System.ComponentModel.DataAnnotations;
 
 namespace GettingStartedApi.Controllers
 {
@@ -10,14 +11,21 @@ namespace GettingStartedApi.Controllers
         [HttpGet]
         public IEnumerable<string> Get()
         {
-            return new string[] { "value1", "value2" };
+            List<string> output = new();
+
+            for (int i = 0; i < Random.Shared.Next(2,10); i++) 
+            {
+                output.Add($"Value #{i+1}");
+            }
+
+            return output;
         }
 
         // GET api/<UsersController>/5
         [HttpGet("{id}")]
         public string Get(int id)
         {
-            return "value";
+            return $"Value #{id+1}";
         }
 
         // POST api/<UsersController>
