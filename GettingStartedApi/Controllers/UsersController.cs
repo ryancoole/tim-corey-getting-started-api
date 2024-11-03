@@ -32,6 +32,12 @@ namespace GettingStartedApi.Controllers
         {
         }
 
+        // PATCH api/<UsersController>/5
+        [HttpPatch("{id}")]
+        public void Patch(int id, [FromBody] string value)
+        {
+        }
+
         // DELETE api/<UsersController>/5
         [HttpDelete("{id}")]
         public void Delete(int id)
